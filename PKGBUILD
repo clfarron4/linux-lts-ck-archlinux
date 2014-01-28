@@ -83,7 +83,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 "${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v6r2-for-3.10.0.patch"
 '0004-block-Switch-from-BFQ-v6r2-for-3.10.0-to-BFQ-v6r2-fo.patch')
 sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
-            '88ea7b4edb7f84d1806c8063b61a23dd16b87f7ed030c1848c76f3bf54942cb0'
+            'b169d1491e69307ef472b86b831ac524deefa542715c065d34c31409d35b674c'
 	    '747d893b69d040dd82650a1a2d509155beace337020619194661049920650ed6'
             'd5fd60f5fae0813eb398b3eac410ce65b8b958360300aa66e1597dc16e9dfe78'
             'd7fada52453d12a24af9634024c36792697f97ce0bc6552939cd7b2344d00cd9'
