@@ -130,10 +130,13 @@ prepare() {
 	patch -Np1 -i "${srcdir}/${_gcc_patch}"
 
 	msg "Patching source with BFQ patches"
-	for p in $(ls ${srcdir}/000{1,2,3,4}-block*.patch); do
+	for p in $(ls ${srcdir}/000{1,2,3}-block*.patch); do
 		msg " $p"
 		patch -Np1 -i "$p"
 	done
+	
+	### This is the BFQ v6r2 3.10.0 to 3.10.8 patch re-implemented for BFQ v7.
+	patch -Np1 -i "${srcdir}/0004-block*.patch"
 
 	### Clean tree and copy ARCH config over
 	msg "Running make mrproper to clean source tree"
