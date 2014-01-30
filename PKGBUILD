@@ -59,7 +59,7 @@ _kernelname=-lts-ck
 _srcname=linux-3.10
 pkgver=3.10.28
 pkgrel=2
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=('GPL2')
 makedepends=('kmod' 'inetutils' 'bc')
@@ -94,7 +94,7 @@ sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
             '84eb6106cef248be03f01636e62610c2a638ae0c6eca6251c1c9fae34275a0b0'
             '5ddacea9934522a0625cc91387623c2dbf17cb376a53d9f3a3870358fac4c1b6'
             'a195af9f0b93090fef07bb28422b973fc90f07eb6c0644c0c2159ec136460f06'
-            '8541d246ec1de56be4fb2ffdf6924382b777a2d066c978fc521b58873fe64979')
+            '133ed79b2108bfa203c7e390e4a85cd21d18478e0d2108d9975b4942bf8d65d1')
 
 
 prepare() {
