@@ -136,7 +136,7 @@ prepare() {
 	done
 	
 	### This is the BFQ v6r2 3.10.0 to 3.10.8 patch re-implemented for BFQ v7.
-	patch -Np1 -i "${srcdir}/0004-block*.patch"
+	patch -Np1 -i "${srcdir}/0004-block-Switch-from-BFQ-v6r2-for-3.10.0-to-BFQ-v6r2-fo.patch"
 
 	### Clean tree and copy ARCH config over
 	msg "Running make mrproper to clean source tree"
