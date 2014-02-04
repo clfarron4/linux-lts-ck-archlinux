@@ -1,5 +1,5 @@
 # Maintainer : Claire Farron <https://github.com/clfarron4/linux-lts-ck-archlinux>
-# Major Contributor: graysky <graysky AT archlinux DOT us> (Submitter)
+# Major Contributor: graysky <graysky AT archlinux DOT us> (Maintainer of linux-ck)
 # Contributor: Tobias Powalowski <tpowa@archlinux.org>
 # Contributor: Thomas Baechler <thomas@archlinux.org>
 
@@ -112,11 +112,12 @@ prepare() {
 	patch -Np1 -i "${srcdir}/change-default-console-loglevel.patch"
 
 	# allow criu without expert option set
-  # patch from fedora
-  patch -Np1 -i "${srcdir}/criu-no-expert.patch"
+	# patch from fedora
+	patch -Np1 -i "${srcdir}/criu-no-expert.patch"
 
-  # CVE-2014-0038
-  patch -Np1 -i "${srcdir}/x86-x32-Correct-invalid-use-of-user-timespec-in-the-kerne.patch"
+	# CVE-2014-0038
+	msg "x86, x32: Correct invalid use of user timespec in the kernel. The x32 case for the recvmsg() timout handling is broken"
+	patch -Np1 -i "${srcdir}/x86-x32-Correct-invalid-use-of-user-timespec-in-the-kerne.patch"
 
 	### Patch source with ck patchset with BFS
 	# Fix double name in EXTRAVERSION
