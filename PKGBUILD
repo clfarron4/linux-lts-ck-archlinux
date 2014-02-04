@@ -1,5 +1,6 @@
 # Maintainer : Claire Farron <https://github.com/clfarron4/linux-lts-ck-archlinux>
-# Major Contributor: graysky <graysky AT archlinux DOT us> (Submitter)
+# Submitter  : V3n3RiX <venerix@gmail.com> (Submitter)
+# Major Contributor: graysky <graysky AT archlinux DOT us> (Maintainer of linux-ck)
 # Contributor: Tobias Powalowski <tpowa@archlinux.org>
 # Contributor: Thomas Baechler <thomas@archlinux.org>
 
