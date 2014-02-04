@@ -1,6 +1,5 @@
 # Maintainer : Claire Farron <https://github.com/clfarron4/linux-lts-ck-archlinux>
-# Submitter  : V3n3RiX <venerix@gmail.com> (Submitter)
-# Major Contributor: graysky <graysky AT archlinux DOT us> (Maintainer of linux-ck)
+# Major Contributor: graysky <graysky AT archlinux DOT us> (Submitter)
 # Contributor: Tobias Powalowski <tpowa@archlinux.org>
 # Contributor: Thomas Baechler <thomas@archlinux.org>
 
@@ -90,8 +89,8 @@ sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
             'd7fada52453d12a24af9634024c36792697f97ce0bc6552939cd7b2344d00cd9'
             '205fe05977dffb72f584ad23b2db8d31c6d8361e1cb9a69a9c4aa546727b0145'
             '56bd99e54429a25a144f2d221718b67f516344ffd518fd7dcdd752206ec5be69'
-            '18f218d5c96f7f08552c5c933fd326522bcdb8cc5c9d3b9674bb9e0ed95bedd7'
-            '23f940a56c94a5c849d842ab166815854ed7d921c2791a33f21a8c30c35ca88f'
+            '5bdd4d9117f86415aeefbbc67ae541fdc3ebd6f3e4d1ab15cdd5c5d126950b0b'
+            '03d963831619cb1f30868f35603d727952d3249a1b2befc7b834ecac300506a3'
             'daa75228a4c45a925cc5dbfeba884aa696a973a26af7695adc198c396474cbd5'
             '84eb6106cef248be03f01636e62610c2a638ae0c6eca6251c1c9fae34275a0b0'
             '5ddacea9934522a0625cc91387623c2dbf17cb376a53d9f3a3870358fac4c1b6'
