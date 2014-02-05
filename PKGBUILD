@@ -1,5 +1,5 @@
 # Maintainer : Claire Farron <https://github.com/clfarron4/linux-lts-ck-archlinux>
-# Major Contributor: graysky <graysky AT archlinux DOT us> (Maintainer of linux-ck)
+# Major Contributor: graysky <graysky AT archlinux DOT us> (Submitter)
 # Contributor: Tobias Powalowski <tpowa@archlinux.org>
 # Contributor: Thomas Baechler <thomas@archlinux.org>
 
@@ -84,13 +84,13 @@ source=("http://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 'x86-x32-Correct-invalid-use-of-user-timespec-in-the-kerne.patch')
 sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
             'b169d1491e69307ef472b86b831ac524deefa542715c065d34c31409d35b674c'
-	    '747d893b69d040dd82650a1a2d509155beace337020619194661049920650ed6'
+	    	'747d893b69d040dd82650a1a2d509155beace337020619194661049920650ed6'
             'd5fd60f5fae0813eb398b3eac410ce65b8b958360300aa66e1597dc16e9dfe78'
             'd7fada52453d12a24af9634024c36792697f97ce0bc6552939cd7b2344d00cd9'
             '205fe05977dffb72f584ad23b2db8d31c6d8361e1cb9a69a9c4aa546727b0145'
             '56bd99e54429a25a144f2d221718b67f516344ffd518fd7dcdd752206ec5be69'
-            '5bdd4d9117f86415aeefbbc67ae541fdc3ebd6f3e4d1ab15cdd5c5d126950b0b'
-            '03d963831619cb1f30868f35603d727952d3249a1b2befc7b834ecac300506a3'
+            'a24863abb539f33f2dd15805e73f2280d10dc11a88cf2a6d491a8a76216b3ec9'
+            '8792fbb60e2a5dfa7bd643cfb3060fc5b8798fd0a5b86e948b0cf5a82ca95b37'
             'daa75228a4c45a925cc5dbfeba884aa696a973a26af7695adc198c396474cbd5'
             '84eb6106cef248be03f01636e62610c2a638ae0c6eca6251c1c9fae34275a0b0'
             '5ddacea9934522a0625cc91387623c2dbf17cb376a53d9f3a3870358fac4c1b6'
