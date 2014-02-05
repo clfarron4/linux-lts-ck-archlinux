@@ -6,12 +6,12 @@ ArchLinux LTS kernel, patched with the CK patchset
 CHANGELOG:
   
 3.10.82-3
-  * Include timespec patch. https://github.com/clfarron4/linux-lts-ck-archlinux/commit/47420b0af7dd690cb5f19ad3d5fc8a095d6e6c30
-  * remove CONFIG_FIRMWARE_IN_KERNL https://github.com/clfarron4/linux-lts-ck-archlinux/commit/12aabea5972ffa4d93a5441fa53d9f7e60178fdf
-  * set SCSI_SCAN_ASYNC=y https://github.com/clfarron4/linux-lts-ck-archlinux/commit/86ec20a96e4aa3a04ad606486a5d861d2195e2ab
-  * remove EFI_VAR, add YAMA https://github.com/clfarron4/linux-lts-ck-archlinux/commit/d86c41fd0a5377aa2eac57779035dc68f39f2475
-  * increase NR_CPU to 128 for x86_64 https://github.com/clfarron4/linux-lts-ck-archlinux/commit/01ec93cd9bcf533e116fb10dea3d0dd1b88cffcc
-  * disable MTD_NAND and CHIPIDEA https://github.com/clfarron4/linux-lts-ck-archlinux/commit/d4ed322a9e7424da57d5043a1af7dc48c7ba6976
+  * Include timespec patch. https://projects.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=8f5829c435869a9384d6c1a4dd85636dda3e7c4b
+  * remove CONFIG_FIRMWARE_IN_KERNL https://projects.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=50bf97fa699d2b353034887dc43737173a18c9a3
+  * set SCSI_SCAN_ASYNC=y https://projects.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=325cba71f0fad2c507441aac5f0bf190b2db6bf5
+  * remove EFI_VAR, add YAMA https://projects.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=aa78faa55d546541319cf3e778756f32dfd675ed
+  * increase NR_CPU to 128 for x86_64 https://projects.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=ecd7251da3d0490004da3d2c0e12088551827ce5
+  * disable MTD_NAND and CHIPIDEA https://projects.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=7ae7ac8c2038826e355b97d3e91961ffc5e67509
   
 3.10.28-2
   
