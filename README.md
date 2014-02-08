@@ -4,6 +4,9 @@ linux-lts-ck-archlinux
 ArchLinux LTS kernel, patched with the CK patchset
 
 CHANGELOG:
+
+3.10.29-1
+  * https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.29
   
 3.10.82-3
   * Include timespec patch. https://projects.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux-lts&id=8f5829c435869a9384d6c1a4dd85636dda3e7c4b
