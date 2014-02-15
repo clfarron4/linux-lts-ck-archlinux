@@ -68,7 +68,7 @@ options=('!strip')
 _ckpatchversion=1
 _ckpatchname="patch-3.10-ck${_ckpatchversion}"
 _gcc_patch="kernel-310-gcc48-2.patch"
-_bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/3.10.8+-v7r1/"
+_bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/3.10.8+-v7r2/"
 source=("http://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		"http://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
 		"http://ck.kolivas.org/patches/3.0/3.10/3.10-ck${_ckpatchversion}/${_ckpatchname}.bz2"
@@ -78,9 +78,9 @@ source=("http://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		'change-default-console-loglevel.patch'
 		'config' 'config.x86_64'
 		'criu-no-expert.patch'
-		"${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r1-3.10.8+.patch"
-		"${_bfqpath}/0002-block-introduce-the-BFQ-v7r1-I-O-sched-for-3.10.8+.patch"
-		"${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r1-for-3.10.8+.patch")
+		"${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r2-3.10.8+.patch"
+		"${_bfqpath}/0002-block-introduce-the-BFQ-v7r2-I-O-sched-for-3.10.8+.patch"
+		"${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r2-for-3.10.8+.patch")
 sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
             'b7b928e226acc90f7e59e91f9a89ad1bb074705ef1a86b5ed8f0856a34dc6720'
             '747d893b69d040dd82650a1a2d509155beace337020619194661049920650ed6'
