@@ -91,9 +91,9 @@ sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
             'a24863abb539f33f2dd15805e73f2280d10dc11a88cf2a6d491a8a76216b3ec9'
             '8792fbb60e2a5dfa7bd643cfb3060fc5b8798fd0a5b86e948b0cf5a82ca95b37'
             'daa75228a4c45a925cc5dbfeba884aa696a973a26af7695adc198c396474cbd5'
-            '1cc1c20a5744bc43d92261aaa1feacc2314a6526ea845acaf3ba780ea416c046'
-            '3ba4cc7ce2debea9ab30d4f6ea5b5e4fd6287b4c15c5e1682a4a2d4006a176ce'
-            '1d46b949719023d4e910ccbccd03a9091d7710610c19e76dbae2faa55b3b2efe')
+            'eb1703be3eeef6d93befd355b2c366ac9d02fe46d1483d012c22a6022b984de1'
+            'ee99c56324f72507c96e14eb3beb495ada6a0f29735801bf1e98f4aac3fff74b'
+            'afa12b38a9304810cb5c9bfc3b3aab88a633048d20c60ffc08973e47c650d203')
 
 prepare() {
 	cd "${_srcname}"
