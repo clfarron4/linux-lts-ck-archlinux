@@ -5,6 +5,9 @@ ArchLinux LTS kernel, patched with the CK patchset
 
 CHANGELOG:
 
+3.10.31-1
+  * UPPKG: 3.10.31-1 https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.31
+
 3.10.30-2
   * UPBFQ: v7r2 for 3.10.8+
 
