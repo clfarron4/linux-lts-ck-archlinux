@@ -437,4 +437,4 @@ package_linux-lts-ck-headers() {
 }
 
 # Global pkgdesc and depends are here so that they will be picked up by AUR
-pkgdesc='Linux Kernel and modules with the ck1 patchset featuring the Brain Fuck Scheduler v0.440.'
+pkgdesc='ArchLinux LTS Kernel and modules with the ck1 patchset featuring the Brain Fuck Scheduler v0.440.'
