@@ -7,6 +7,10 @@ CHANGELOG:
 
 3.10.33-1
   * UPPKG: https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.33
+  * New GCC Optimisations: http://repo-ck.com/source/gcc_patch/enable_additional_cpu_optimizations_for_gcc.patch.gz
+
+3.10.33-1
+  * UPPKG: https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.33
 
 3.10.32-1
   * UPPKG: 3.10.32-1 https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.32
