@@ -5,6 +5,9 @@ ArchLinux LTS kernel, patched with the CK patchset
 
 CHANGELOG:
 
+3.10.35-1
+  * UPPKG: https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.35
+
 3.10.34-1
   * UPPKG: https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.34
   * New GCC Optimisations: http://repo-ck.com/source/gcc_patch/enable_additional_cpu_optimizations_for_gcc.patch.gz
