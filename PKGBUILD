@@ -11,11 +11,11 @@ _pstates_pat=   # Enable Haswell support for the new Intel pstate drive
 _makenconfig=   # Tweak kernel options prior to a build via nconfig
 _localmodcfg=   # Compile ONLY probed modules
 _use_current=   # Use the current kernel's .config file
-_BFQ_enable_=y  # Enable BFQ as the default I/O scheduler
+_BFQ_enable_=  # Enable BFQ as the default I/O scheduler
 _NUMAdisable=y  # Disable NUMA in kernel config
 
 ### DOCS
-# Starting with the 3.6.9-3 release, this package ships with the kernel-3x-gcc47-x.patch.
+# This package has shipped with GCC optimisations since the 3.6.9-3 release, currently with enable_additional_cpu_optimizations_for_gcc.patch.
 # This allows users an expanded scope of CPU specific options.
 # Consult the following resources to understand which option is right for you application:
 #
@@ -58,7 +58,7 @@ pkgname=linux-lts-ck
 true && pkgname=(linux-lts-ck linux-lts-ck-headers)
 _kernelname=-lts-ck
 _srcname=linux-3.10
-pkgver=3.10.40
+pkgver=3.10.42
 pkgrel=2
 arch=('i686' 'x86_64')
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -67,7 +67,7 @@ makedepends=('kmod' 'inetutils' 'bc')
 options=('!strip')
 _ckpatchversion=1
 _ckpatchname="patch-3.10-ck${_ckpatchversion}"
-_gcc_patch="enable_additional_cpu_optimizations_for_gcc.patch"
+_gcc_patch="enable_additional_cpu_optimizations_for_gcc_v4.9+.patch"
 _bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/3.10.8+-v7r4"
 source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		"https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
@@ -83,14 +83,14 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		"${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r4-for-3.10.8+.patch")
 
 sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
-            'ca4514f17cfc0c1b9ef17066465f044f06452a2b3da5e5a0eca8a841df42c634'
+            '7e04b1e82592677de24f5d86ce7f51e2a222a58f5ef1ad8d8b180758b5c0bc93'
             '747d893b69d040dd82650a1a2d509155beace337020619194661049920650ed6'
-            '70717f6c64bed9da2450b3a824b25df0a916cdf43ee1e0f537057db3f9a33b8d'
+            'c6c4a9f77683b95c37636b20c4bc8a1f8214c87feef7fc469e58534fcc32fb4a'
             'd7fada52453d12a24af9634024c36792697f97ce0bc6552939cd7b2344d00cd9'
             '205fe05977dffb72f584ad23b2db8d31c6d8361e1cb9a69a9c4aa546727b0145'
             '56bd99e54429a25a144f2d221718b67f516344ffd518fd7dcdd752206ec5be69'
-            '59be2c933282cb719de8e958996ef51314f2fad5f024930cf2e7d6068f71aa14'
-            '17eda278e65924f0c97bd81d90f7672252ac8926b06a0d10ac2d0a7543e68769'
+            '9748898c909432d76dc353c120476176456b2a58ba9214861edbec8ffdd5e375'
+            '8b70e7b46235852d251b45d88f1ecdd003925ac145379bbc2c33ddb65e0743da'
             'daa75228a4c45a925cc5dbfeba884aa696a973a26af7695adc198c396474cbd5'
             '0582f7e0b066fcebc532d5965f212e73bd1e261ee3218d98780a006b5690b0b7'
             '7edeeb53c2a91f44f551c95bf082ce1da9920088e1afaf06fa848543fcb5ae91'
@@ -235,8 +235,9 @@ build() {
 }
 
 package_linux-lts-ck() {
-	_Kpkgdesc='Arch Linux LTS Kernel and modules with the ck1 patchset featuring the Brain Fuck Scheduler v0.440.'
-	pkgdesc="${_Kpkgdesc}"
+	pkgdesc='Arch Linux LTS Kernel with the ck1 patchset featuring the Brain Fuck Scheduler v0.440.'
+	#_Kpkgdesc='Arch Linux LTS Kernel with the ck1 patchset featuring the Brain Fuck Scheduler v0.440.'
+	#pkgdesc="${_Kpkgdesc}"
 	depends=('coreutils' 'linux-firmware' 'mkinitcpio>=0.7')
 	optdepends=('crda: to set the correct wireless channels of your country' 'lirc-ck: Linux Infrared Remote Control kernel modules for linux-lts-ck' 'nvidia-lts-ck: nVidia drivers for linux-lts-ck' 'modprobed_db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
 	provides=("linux-lts-ck=${pkgver}")
@@ -298,8 +299,9 @@ package_linux-lts-ck() {
 }
 
 package_linux-lts-ck-headers() {
-	_Hpkgdesc='Header files and scripts to build modules for linux-lts-ck.'
-	pkgdesc="${_Hpkgdesc}"
+	pkgdesc='Header files and scripts to build modules for linux-lts-ck.'
+	#_Hpkgdesc='Header files and scripts to build modules for linux-lts-ck.'
+	#pkgdesc="${_Hpkgdesc}"
 	depends=('linux-lts-ck') # added to keep kernel and headers packages matched
 	provides=("linux-lts-ck-headers=${pkgver}" "linux-headers=${pkgver}")
 	replaces=('kernel26-ck-lts-headers')
