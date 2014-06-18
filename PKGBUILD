@@ -49,17 +49,21 @@ _NUMAdisable=y  # Disable NUMA in kernel config
 
 # DETAILS FOR _BFQ_enable=
 # Alternative I/O scheduler by Paolo.  For more, see: http://algo.ing.unimo.it/people/paolo/disk_sched/
+# Set this if you want it enabled globally i.e. for all devices in your system
+# If you want it enabled on a device-by-device basis, leave this unset and see:
+# https://wiki.archlinux.org/index.php/Linux-ck#How_to_Enable_the_BFQ_I.2FO_Scheduler
 
 # DETAILS FOR _NUMAdisable=
-# Since >99 % of users do not have multiple CPUs but do have multiple cores in one CPU.
-# see, https://bugs.archlinux.org/task/31187
+# NUMA is optimized for multi-socket motherboards.
+# A single multi-core CPU actually runs slower with NUMA enabled.
+# See, https://bugs.archlinux.org/task/31187
 
 pkgname=linux-lts-ck
 true && pkgname=(linux-lts-ck linux-lts-ck-headers)
 _kernelname=-lts-ck
 _srcname=linux-3.10
-pkgver=3.10.42
-pkgrel=2
+pkgver=3.10.44
+pkgrel=1
 arch=('i686' 'x86_64')
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=('GPL2')
@@ -83,13 +87,13 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		"${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r4-for-3.10.8+.patch")
 
 sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
-            '7e04b1e82592677de24f5d86ce7f51e2a222a58f5ef1ad8d8b180758b5c0bc93'
+            '86086660ac02cb5d6dd4ace3593e5e185fd3c04a8de4bd5cf7adb70e28be8d8b'
             '747d893b69d040dd82650a1a2d509155beace337020619194661049920650ed6'
             'c6c4a9f77683b95c37636b20c4bc8a1f8214c87feef7fc469e58534fcc32fb4a'
             'd7fada52453d12a24af9634024c36792697f97ce0bc6552939cd7b2344d00cd9'
             '205fe05977dffb72f584ad23b2db8d31c6d8361e1cb9a69a9c4aa546727b0145'
             '56bd99e54429a25a144f2d221718b67f516344ffd518fd7dcdd752206ec5be69'
-            '9748898c909432d76dc353c120476176456b2a58ba9214861edbec8ffdd5e375'
+            'c67d3e94ca4274c75e4768976bcbbab9f54c2f52a9e1e901d9fa2ae57122ba77'
             '8b70e7b46235852d251b45d88f1ecdd003925ac145379bbc2c33ddb65e0743da'
             'daa75228a4c45a925cc5dbfeba884aa696a973a26af7695adc198c396474cbd5'
             '0582f7e0b066fcebc532d5965f212e73bd1e261ee3218d98780a006b5690b0b7'
@@ -197,10 +201,6 @@ prepare() {
 
 	# don't run depmod on 'make install'. We'll do this ourselves in packaging
 	sed -i '2iexit 0' scripts/depmod.sh
-}
-
-build() {
-	cd "${_srcname}"
 
 	# get kernel version
 	msg "Running make prepare for you to enable patched options of your choosing"
@@ -229,6 +229,11 @@ build() {
   else
     cat .config > "${startdir}/config.last"
   fi
+
+}
+
+build() {
+	cd "${srcdir}/linux-3.10"
 
 	msg "Running make bzImage and modules"
 	make ${MAKEFLAGS} LOCALVERSION= bzImage modules
