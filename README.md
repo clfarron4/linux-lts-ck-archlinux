@@ -5,6 +5,13 @@ ArchLinux LTS kernel, patched with the CK patchset
 
 CHANGELOG:
 
+3.10.44-1
+  * UPPKG: https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.44
+
+3.10.42-2
+  * UPPKG: https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.42
+  * UPGCC: http://repo-ck.com/source/gcc_patch/enable_additional_cpu_optimizations_for_gcc_v4.9+.patch.gz
+
 3.10.40-2
   * UPPKG: https://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.10.40
   * UPBFQ: http://algo.ing.unimo.it/people/paolo/disk_sched/patches/3.10.8+-v7r4/
