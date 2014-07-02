@@ -62,7 +62,7 @@ pkgname=linux-lts-ck
 true && pkgname=(linux-lts-ck linux-lts-ck-headers)
 _kernelname=-lts-ck
 _srcname=linux-3.10
-pkgver=3.10.44
+pkgver=3.10.46
 pkgrel=1
 arch=('i686' 'x86_64')
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -72,7 +72,7 @@ options=('!strip')
 _ckpatchversion=1
 _ckpatchname="patch-3.10-ck${_ckpatchversion}"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v4.9+.patch"
-_bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/3.10.8+-v7r4"
+_bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/3.10.8+-v7r5"
 source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		"https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
 		"http://ck.kolivas.org/patches/3.0/3.10/3.10-ck${_ckpatchversion}/${_ckpatchname}.bz2"
@@ -82,12 +82,12 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		'change-default-console-loglevel.patch'
 		'config' 'config.x86_64'
 		'criu-no-expert.patch'
-		"${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r4-3.10.8+.patch"
-		"${_bfqpath}/0002-block-introduce-the-BFQ-v7r4-I-O-sched-for-3.10.8+.patch"
-		"${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r4-for-3.10.8+.patch")
+		"${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r5-3.10.8+.patch"
+		"${_bfqpath}/0002-block-introduce-the-BFQ-v7r5-I-O-sched-for-3.10.8+.patch"
+		"${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r5-for-3.10.8+.patch")
 
 sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
-            '86086660ac02cb5d6dd4ace3593e5e185fd3c04a8de4bd5cf7adb70e28be8d8b'
+            'cfbe1e2d1f15d21e5c6837279d2187fc65fe5dda8841472dc60469a208bbd56b'
             '747d893b69d040dd82650a1a2d509155beace337020619194661049920650ed6'
             'c6c4a9f77683b95c37636b20c4bc8a1f8214c87feef7fc469e58534fcc32fb4a'
             'd7fada52453d12a24af9634024c36792697f97ce0bc6552939cd7b2344d00cd9'
@@ -96,9 +96,9 @@ sha256sums=('df27fa92d27a9c410bfe6c4a89f141638500d7eadcca5cce578954efc2ad3544'
             'c67d3e94ca4274c75e4768976bcbbab9f54c2f52a9e1e901d9fa2ae57122ba77'
             '8b70e7b46235852d251b45d88f1ecdd003925ac145379bbc2c33ddb65e0743da'
             'daa75228a4c45a925cc5dbfeba884aa696a973a26af7695adc198c396474cbd5'
-            '0582f7e0b066fcebc532d5965f212e73bd1e261ee3218d98780a006b5690b0b7'
-            '7edeeb53c2a91f44f551c95bf082ce1da9920088e1afaf06fa848543fcb5ae91'
-            '2f34cfdfb76ea1823aa6975785523d9b70c217ef747a249716a80449359b41b2')
+            'a80d0f1edf5faca0fb761639e8170881166bd3e3232da59bd46a5377aaddd24f'
+            '0f90322964102f137f8183970d15788be135545f973eef4083f03d611548eb0d'
+            '7e3c9c62de033e51184bfd947c9babbd29b058d92102639c053241a1688c815e')
 
 prepare() {
 	cd "${_srcname}"
