@@ -1,4 +1,5 @@
 # Maintainer : Claire Farron <https://github.com/clfarron4/linux-lts-ck-archlinux>
+# Github Monkey : Andes Ho <https://github.com/andesho91>
 # Major Contributor: graysky <graysky AT archlinux DOT us> (Maintainer of linux-ck)
 # Submitter  : V3n3RiX <venerix@gmail.com>
 # Contributor: Tobias Powalowski <tpowa@archlinux.org>
