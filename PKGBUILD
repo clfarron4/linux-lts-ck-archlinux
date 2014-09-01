@@ -14,6 +14,7 @@ _localmodcfg=	# Compile ONLY probed modules
 _use_current=	# Use the current kernel's .config file
 _BFQ_enable_=	# Enable BFQ as the default I/O scheduler
 _NUMAdisable=y	# Disable NUMA in kernel config
+_usesmtnice6=	# Enable smtnice6
 
 ### DOCS
 # This package has shipped with GCC optimisations since the 3.6.9-3 release, currently with enable_additional_cpu_optimizations_for_gcc.patch.
@@ -24,6 +25,10 @@ _NUMAdisable=y	# Disable NUMA in kernel config
 # http://en.gentoo-wiki.com/wiki/Safe_Cflags/AMD
 # http://www.linuxforge.net/docs/linux/linux-gcc.php
 # http://gcc.gnu.org/onlinedocs/gcc/i386-and-x86_002d64-Options.html
+
+# DETAILS FOR _usesmtnice6=
+# Enable experimental patch set including smtnice6
+# If unsure, see http://ck-hack.blogspot.co.uk/2014/08/smt-nice-3.html
 
 # DETAILS FOR _1k_HZ_ticks
 # Running with a 1000 HZ tick rate (vs the ARCH 300) is reported to solve the
@@ -67,7 +72,7 @@ _NUMAdisable=y	# Disable NUMA in kernel config
 pkgname=(linux-lts-ck linux-lts-ck-headers)
 _kernelname=-lts-ck
 _srcname=linux-3.14
-pkgver=3.14.11
+pkgver=3.14.17
 pkgrel=2
 arch=('i686' 'x86_64')
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -81,6 +86,7 @@ _bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/3.14.0-v7r5"
 source=("http://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		"http://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
 		"http://ck.kolivas.org/patches/3.0/3.14/3.14-ck${_ckpatchversion}/${_ckpatchname}.bz2"
+		"bfs447-454.patch"
 		"http://repo-ck.com/source/gcc_patch/${_gcc_patch}.gz"
 		'config.x86_64' 'config'
 		'linux-lts-ck.preset'
@@ -91,14 +97,16 @@ source=("http://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
 		'0006-genksyms-fix-typeof-handling.patch'
 		"${_bfqpath}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r5-3.14.patch"
 		"${_bfqpath}/0002-block-introduce-the-BFQ-v7r5-I-O-sched-for-3.14.patch"
-		"${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r5-for-3.14.0.patch")
+		"${_bfqpath}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r5-for-3.14.0.patch"
+		'bfs454-smtnice-6.patch')
 
 sha256sums=('61558aa490855f42b6340d1a1596be47454909629327c49a5e4e10268065dffa'
-            '3f290fb547cb4afe23bf520c8c863b6d1e090814f4a6fa0080ed51b4afd9a409'
+            '50b0e2a6812597b401a417bd1269b5388fdd980b6009d564fff09605100f0df8'
             '8b5924a8aa17876d394cdeb84740d96317e94d2430caddf753c416100b917d3c'
+            'feb2df1ee5925728902edd4dd0ce9ddb2f50acc9d4b8d16a74bbb64dbe357b6f'
             'c6c4a9f77683b95c37636b20c4bc8a1f8214c87feef7fc469e58534fcc32fb4a'
-            'fb7ce9252bfd9d65a7c7291851bd498f1730d65509a79e350b637c8a07d2477f'
-            '8cf7cceeae519cd8cefd070400e9285dcbb18cee9675cab9f66204ff906793dd'
+            '932d21821a946d28786131abe3492843474668ac006c29e6d74a562630c149be'
+            '55881d1509b96fff8c3535dd9b7c8c15d81bc165500588b1728851c79774983f'
             '205fe05977dffb72f584ad23b2db8d31c6d8361e1cb9a69a9c4aa546727b0145'
             'faced4eb4c47c4eb1a9ee8a5bf8a7c4b49d6b4d78efbe426e410730e6267d182'
             '6d72e14552df59e6310f16c176806c408355951724cd5b48a47bf01591b8be02'
@@ -107,7 +115,8 @@ sha256sums=('61558aa490855f42b6340d1a1596be47454909629327c49a5e4e10268065dffa'
             'cf2e7a2d00787f754028e7459688c2755a406e632ce48b60952fa4ff7ed6f4b7'
             '02b63f3d4aacb10cf8c75a3ba5f1aa837bf1355362961496214df34084e5e661'
             '151a1154eeafebf7219de88e2e8d2eef928a6d6935aa1370c80a2e3d7dde9ee6'
-            '652abc58b8cc1891e1c685c701c9c7b7f29d8a08f7ea70f301b0de35c84d5a92')
+            '652abc58b8cc1891e1c685c701c9c7b7f29d8a08f7ea70f301b0de35c84d5a92'
+            'f094d97fe0c5fe3cb4f754794c3daef3cc8f0f9334bceb7ad245cc3e090eabb6')
 
 prepare() {
 	cd "${_srcname}"
@@ -141,8 +150,14 @@ prepare() {
 	# patch source with ck patchset with BFS
 	# fix double name in EXTRAVERSION
 	sed -i -re "s/^(.EXTRAVERSION).*$/\1 = /" "${srcdir}/${_ckpatchname}"
-	msg "Patching source with ck1 including BFS v0.447"
+	msg "Patching source with ck1 including BFS v0.454"
 	patch -Np1 -i "${srcdir}/${_ckpatchname}"
+	patch -Np1 -i "${srcdir}/bfs447-454.patch"
+
+	if [ -n "$_use_current" ]; then
+		msg "Patching source with smtnice6"
+		patch -Np1 -i "${srcdir}/bfs454-smtnice-6.patch"
+	fi
 
 	# Patch source to enable more gcc CPU optimizatons via the make nconfig
 	msg "Patching source to enable more gcc CPU optimizatons"
@@ -263,8 +278,8 @@ build() {
 }
 
 package_linux-lts-ck() {
-	pkgdesc='Linux Kernel with the ck1 patchset featuring the Brain Fuck Scheduler v0.447.'
-	#_Kpkgdesc='Linux Kernel and modules with the ck1 patchset featuring the Brain Fuck Scheduler v0.447.'
+	pkgdesc='Linux Kernel with the ck1 patchset featuring the Brain Fuck Scheduler v0.454.'
+	#_Kpkgdesc='Linux Kernel and modules with the ck1 patchset featuring the Brain Fuck Scheduler v0.454.'
 	#pkgdesc="${_Kpkgdesc}"
 	depends=('coreutils' 'linux-firmware' 'mkinitcpio>=0.7')
 	optdepends=('crda: to set the correct wireless channels of your country' 'lirc-ck: Linux Infrared Remote Control kernel modules for linux-lts-ck' 'nvidia-lts-ck: nVidia drivers for linux-lts-ck' 'modprobed_db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
